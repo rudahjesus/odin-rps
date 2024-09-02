@@ -4,11 +4,11 @@ var random; var playerScore = 0; var machineScore = 0; //int
 var i;
 
 function getHumanChoice(){
-    humanPrompt = prompt("Jo Ken Po")
+    humanPrompt = prompt("Jo Ken Po");
     humanPrompt = humanPrompt.toLowerCase();
     if(humanPrompt === "rock" || humanPrompt === "paper" || humanPrompt === "scissors"){
         validValue = true;
-        humanChoice = humanPrompt
+        humanChoice = humanPrompt;
         return humanChoice;
     }
     else{
@@ -26,30 +26,28 @@ function getComputerChoice(){
 
 function playRound(humanChoice, computerChoice){
     if(humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "scissors" && computerChoice == "paper" 
-      || humanChoice == "paper" && computerChoice == "rock"){
-
+    || humanChoice == "paper" && computerChoice == "rock"){
         console.log("You won!");
-        playerScore++
+        playerScore++;
       }
     else if(humanChoice == "rock" && computerChoice == "paper" || humanChoice == "scissors" && computerChoice == "rock" 
-        || humanChoice == "paper" && computerChoice == "scissors"){
-
+    || humanChoice == "paper" && computerChoice == "scissors"){
         console.log("You lost");
-        machineScore++
+        machineScore++;
     }
     console.log("The scoreboard is: Player - ", playerScore, "Computer: ", machineScore);
 }
 
-function whoWon(){
+function getWinner(){
     if(playerScore > machineScore){
-        console.log("You won the game! I am fodder")
+        console.log("You won the game! I am fodder");
     }
     else if(playerScore < machineScore){
-        console.log("You lost! You are fodder")
+        console.log("You lost! You are fodder");
 
     }
     else if(playerScore == machineScore){
-        console.log("we both fodder")
+        console.log("we both fodder");
     }
 }
 
@@ -62,4 +60,4 @@ for( i = 0; i <= 4; i++){
         playRound(humanChoice, computerChoice);
     }
 }
-whoWon();
+getWinner();
