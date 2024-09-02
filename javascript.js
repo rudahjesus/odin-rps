@@ -1,9 +1,9 @@
-var humanPrompt; var humanChoice; var computerPrompt; var machineOptions = ["rock", "paper", "scissors"];//string
+var humanPrompt; var humanChoice; var computerChoice; var machineOptions = ["rock", "paper", "scissors"];//string
 var validValue; //bool
 var random; var playerScore = 0; var machineScore = 0; //int
 var i;
 
-function getHumanPrompt(){
+function getHumanChoice(){
     humanPrompt = prompt("Jo Ken Po")
     humanPrompt = humanPrompt.toLowerCase();
     if(humanPrompt === "rock" || humanPrompt === "paper" || humanPrompt === "scissors"){
@@ -17,22 +17,22 @@ function getHumanPrompt(){
     }
 }
 
-function getComputerPrompt(){
+function getComputerChoice(){
     random = Math.floor(Math.random() * machineOptions.length);
-    computerPrompt = machineOptions[random];
-    computerPrompt = computerPrompt.toLowerCase();
-    return computerPrompt;
+    computerChoice = machineOptions[random];
+    computerChoice = computerChoice.toLowerCase();
+    return computerChoice;
 }
 
-function playRound(humanChoice, computerPrompt){
-    if(humanChoice == "rock" && computerPrompt == "scissors" || humanChoice == "scissors" && computerPrompt == "paper" 
-      || humanChoice == "paper" && computerPrompt == "rock"){
+function playRound(humanChoice, computerChoice){
+    if(humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "scissors" && computerChoice == "paper" 
+      || humanChoice == "paper" && computerChoice == "rock"){
 
         console.log("You won!");
         playerScore++
       }
-    else if(humanChoice == "rock" && computerPrompt == "paper" || humanChoice == "scissors" && computerPrompt == "rock" 
-        || humanChoice == "paper" && computerPrompt == "scissors"){
+    else if(humanChoice == "rock" && computerChoice == "paper" || humanChoice == "scissors" && computerChoice == "rock" 
+        || humanChoice == "paper" && computerChoice == "scissors"){
 
         console.log("You lost");
         machineScore++
@@ -54,12 +54,12 @@ function whoWon(){
 }
 
 for( i = 0; i <= 4; i++){
-    getHumanPrompt();
-    getComputerPrompt();
+    getHumanChoice();
+    getComputerChoice();
     console.log(humanChoice);
     if(validValue){  
-        console.log(computerPrompt);
-        playRound(humanChoice, computerPrompt);
+        console.log(computerChoice);
+        playRound(humanChoice, computerChoice);
     }
 }
 whoWon();
