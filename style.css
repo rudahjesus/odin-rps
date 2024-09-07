@@ -1,0 +1,28 @@
+.title{
+    display: flex;
+    flex: 1;
+    color:rgb(153, 30, 30);
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    font-family: Pike Regular;
+    font-size: 56px;
+}
+
+.buttonline{
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: rgb(153, 30, 30); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-family: Pike Regular;
+    font-size: 32px;
+    margin:10px
+  }
