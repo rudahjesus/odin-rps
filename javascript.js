@@ -5,6 +5,9 @@ var scoreDisplay = document.querySelector('.result#humanScore');
 var i; 
 var results = document.querySelector('.result');
 var scoreboard = document.querySelector('.result#scoreboard');
+var finalScore = document.querySelector('.result#finalScore');
+var rounds = 0;
+
 
 
 function getComputerChoice(){
@@ -14,7 +17,22 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-function playRound(humanChoice, computerChoice){
+function getWinner(){
+
+    if(playerScore > machineScore){
+        finalScore.innerText = "You won the game! I am fodder";
+    }
+    else if(playerScore < machineScore){
+        finalScore.innerText = "You lost! You are fodder";
+
+    }
+    else if(playerScore == machineScore){
+        finalScore.innerText = "we both fodder";
+    }
+}
+
+
+function playGame(humanChoice, computerChoice){
     getComputerChoice();
     results.innerText = `You chose ${humanChoice}, computer chose ${computerChoice}`;
     //console.log(humanChoice);
@@ -38,20 +56,17 @@ function playRound(humanChoice, computerChoice){
         scoreboard.innerText = "Tie!"
     }
     scoreDisplay.innerText = `Player score is: ${playerScore} | CPU score is: ${machineScore}`;
-}
+    rounds++;
+    console.log(rounds);
 
-function getWinner(){
-
-    if(playerScore > machineScore){
-        console.log("You won the game! I am fodder");
-    }
-    else if(playerScore < machineScore){
-        console.log("You lost! You are fodder");
-
-    }
-    else if(playerScore == machineScore){
-        console.log("we both fodder");
+    if(rounds == 5){
+        getWinner();
     }
 }
+
+
+
+
+
 
 
