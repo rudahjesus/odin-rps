@@ -1,8 +1,11 @@
-var humanPrompt; var humanChoice; var computerChoice; var machineOptions = ["rock", "paper", "scissors"];//string
-var validValue; //bool
-var random; var playerScore = 0; var machineScore = 0; //int
-var i; var flagr, flagp, flags;
-var result = document.getElementsByClassName('result'); 
+var humanPrompt; var humanChoice; var computerChoice; var machineOptions = [" rock", " paper", " scissors"];
+var validValue;
+var random; var playerScore = 0; var machineScore = 0;
+var scoreDisplay = document.querySelector('.result#humanScore'); 
+var i; 
+var results = document.querySelector('.result');
+var scoreboard = document.querySelector('.result#scoreboard');
+
 
 function getComputerChoice(){
     random = Math.floor(Math.random() * machineOptions.length);
@@ -13,26 +16,28 @@ function getComputerChoice(){
 
 function playRound(humanChoice, computerChoice){
     getComputerChoice();
-    console.log(humanChoice);
-    console.log(computerChoice);
+    results.innerText = `You chose ${humanChoice}, computer chose ${computerChoice}`;
+    //console.log(humanChoice);
+    //console.log(computerChoice);
+    if(humanChoice === "rock" && computerChoice === " scissors" || 
+        humanChoice === "scissors" && computerChoice === " paper" || 
+        humanChoice === "paper" && computerChoice === " rock"){
 
-    if(humanChoice == "rock" && computerChoice == "scissors" || 
-        humanChoice == "scissors" && computerChoice == "paper" || 
-        humanChoice == "paper" && computerChoice == "rock"){
-
-        result.innerText = 'You Won';
+        scoreboard.innerText = "You Won!"
         playerScore++;
       }
 
-    else if(humanChoice == "rock" && computerChoice == "paper" ||
-         humanChoice == "scissors" && computerChoice == "rock" || 
-         humanChoice == "paper" && computerChoice == "scissors"){
+    else if(humanChoice === "rock" && computerChoice === " paper" ||
+         humanChoice === "scissors" && computerChoice === " rock" || 
+         humanChoice === "paper" && computerChoice === " scissors"){
 
-        result.innerText = 'You Lost';
+        scoreboard.innerText = "You Lost!"
         machineScore++;
     }
-
-    console.log("The scoreboard is: Player - ", playerScore, "Computer: ", machineScore);
+    else{
+        scoreboard.innerText = "Tie!"
+    }
+    scoreDisplay.innerText = `Player score is: ${playerScore} | CPU score is: ${machineScore}`;
 }
 
 function getWinner(){
